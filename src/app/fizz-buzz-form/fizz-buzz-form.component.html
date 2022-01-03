@@ -1,0 +1,27 @@
+<form [formGroup]="form">
+    <div class="row">
+        <div class="col">
+        <input type="number" class="form-control" placeholder="Starting random number" required aria-label="Starting random number" (keyup)="validateLimitLessThanStartingNumber()" id="startRandomNumber" name="startRandomNumber" formControlName="startRandomNumber">
+        </div>
+        <div class="col">
+        <input type="number" class="form-control" placeholder="Limit number" required aria-label="Limit number" (keyup)="validateLimitLessThanStartingNumber()" id="limitNumber" name="limitNumber" formControlName="limitNumber">
+        </div>
+    </div>
+    <div class="row mt-3">
+        <div class="col">
+            <button type="submit" class="btn btn-primary" [disabled]="(!form.valid || (isLimitLessThanStartingNumber && form.valid))" (click)="submit()">Submit</button>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col">
+            <small>*All fields are mandatory.</small>&nbsp;<small class="text-danger" *ngIf="isLimitLessThanStartingNumber">Limit Number cannot be lower than starting number.</small>
+        </div>
+    </div>
+</form>
+<div class="row mt-2">
+    <div class="col">
+        <!--Show the blanckDiv or the image depending on if we are loading information from the server or if we are idle, waiting for the user to complete the form. -->
+        <div class="blankDiv" *ngIf="!loadingData"></div>
+        <img id="loadingImage" alt="loading..." *ngIf="loadingData" src="/assets/images/spinner.gif" width="40" height="40">
+    </div>
+</div>

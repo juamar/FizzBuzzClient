@@ -1,5 +1,7 @@
 # Fizzbuzzclient
 
+Angular Demo application for working with FizzBuzzService that, given a random start number and a limit number, will return an string that counts all numbers from the random start number till the limit, replacing all number divisible for 3 as Fizz, the ones by five as Buzz, and if both, FizzBuzz!
+
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 13.1.2.
 
 ## Development server
